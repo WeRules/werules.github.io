@@ -1,1 +1,22 @@
-<p>Hello World!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+</head>
+<body>
+    <p>Your endpoint URL is <a href="" id="a"></a>.</p>
+</body>
+<footer>
+    <script>
+        var url = new URL(window.location.href);
+        var base_url = url.searchParams.get("base_url");
+        var key = url.searchParams.get("key");
+        var a = document.getElementById('a');
+        var text = base_url + '/chatbot/webhook/messenger/endpoint/' + key + '/';
+        text = (text.indexOf('://') === -1) ? 'https://' + text : text;
+        a.innerText = text;
+        a.href = text;
+    </script>
+</footer>
+</html>
